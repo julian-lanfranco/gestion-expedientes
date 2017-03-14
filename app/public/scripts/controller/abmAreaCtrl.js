@@ -35,7 +35,7 @@ angular.module('appExpedientes').controller('ABMAreasCtrl',
 
             $scope.actualizar = function(){
                 console.log($scope.area);
-                expedientesService.actualizarExpediente($scope.expediente)
+                areasService.actualizarArea($scope.area)
                 .then(
                     function(){
                         $scope.operacionExitosa = true; 
@@ -66,10 +66,12 @@ angular.module('appExpedientes').controller('ABMAreasCtrl',
                 $scope.operacionError =false;   
                 $scope.operacionExitosa = false;    
                 $location.path("home");
+
             };
 
             // cuando termina de cargar el controller lo inicia
             iniciar();
+
         }
     ]
 );

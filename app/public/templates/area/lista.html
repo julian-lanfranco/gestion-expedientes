@@ -1,28 +1,25 @@
-<h1>Lista de Expediente</h1>
+<h1>Lista de Areas</h1>
 <table class="table table-condensed">
 <thead>
-  <td>Nro</td>  
-  <td>Caratula</td>  
-  <td>Fecha</td>  
-  <td>Iniciador</td>  
-  <td>Nro</td>  
+  <td>Nombre</td>  
+  <td>Correo</td>  
+  <td>interno?</td>   
+  <td>Accion</td>  
 </thead>
 <tbody>
-<tr ng-repeat="expte in lista">
+<tr ng-repeat="are in lista">
   <td>
-    {{expte.nroExpediente}}
+    {{are.nombre}}
   </td>
   <td>
-    {{expte.caratula}}
+    {{are.correo}}
   </td>
   <td>
-    {{expte.fecha | date:short}}
+    {{are.interno}}
   </td>
+
   <td>
-    {{expte.iniciador}}
-  </td>
-  <td>
-    <button ng-click="editar(expte)" type="button">Editar</button>
+    <button ng-click="editar(are)" type="button">Editar</button>
     <button>Registrar Pase</button>
   </td>
 </tr>

@@ -11,6 +11,7 @@ angular.module('appExpedientes').factory('expedientesService',
             return deffered.promise;
         };
         var _buscarTodos = function(){
+            
             var deffered = $q.defer();
             $http.get("http://localhost:3000/api/expediente/").success(function(data, status, headers, config) {
                 deffered.resolve(data);

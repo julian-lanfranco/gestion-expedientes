@@ -12,18 +12,19 @@ angular.module('appExpedientes').factory('areasService',
         };
         var _buscarTodos = function(){
             var deffered = $q.defer();
-            $http.get("http://localhost:3000/api/expediente/").success(function(data, status, headers, config) {
+            $http.get("http://localhost:3000/api/area/").success(function(data, status, headers, config) {
                 deffered.resolve(data);
             }).error(function(data, status, headers, config) {
                 deffered.reject({data:data,status:status});
             });
             return deffered.promise;
         };
-         var _actualizar = function(actuExpediente){
+         var _actualizar = function(actuArea){
+         
             var deffered = $q.defer();
-            $http.put("http://localhost:3000/api/expediente/"+actuExpediente._id,actuExpediente).success(function(data, status, headers, config) {
+            $http.put("http://localhost:3000/api/area/"+actuArea._id,actuArea).success(function(data, status, headers, config) {
                 deffered.resolve(data);
-                _expedienteActual={};
+                _areaActual={};
             }).error(function(data, status, headers, config) {
                 deffered.reject({data:data,status:status});
             });
@@ -31,27 +32,27 @@ angular.module('appExpedientes').factory('areasService',
         };
          var _borrar = function(id){
             var deffered = $q.defer();
-            $http.delete("http://localhost:3000/api/expediente/"+id).success(function(data, status, headers, config) {
-                deffered.resolve("expediente borrado");
-                _expedienteActual={};
+            $http.delete("http://localhost:3000/api/area/"+id).success(function(data, status, headers, config) {
+                deffered.resolve("area borrada");
+                _areaActual={};
             }).error(function(data, status, headers, config) {
                 deffered.reject({data:data,status:status});
             });
             return deffered.promise;
         };
         return {              
-            buscarExpediente: function(text){
-                console.log("Buscando expediente "+text);
+            buscarArea: function(text){
+                console.log("Buscando area "+text);
             },
             buscarTodos : _buscarTodos,
             crearArea : _crearArea,
-            actualizarExpediente : _actualizar,
-            borrarExpediente : _borrar,
-            setExpedienteActual : function(e){
-                _expedienteActual=e;
+            actualizarArea : _actualizar,
+            borrarArea : _borrar,
+            setAreaActual : function(e){
+                _areaActual=e;
             },
-            getExpedienteActual :function(){
-                return _expedienteActual;
+            getAreaActual :function(){
+                return _areaActual;
             } 
         };        
 }]);

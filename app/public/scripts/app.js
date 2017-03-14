@@ -14,9 +14,15 @@ angular.module('appExpedientes', ['ngRoute','ui.bootstrap'])
 		}).when('/expediente/abm/:idexpediente', {
 			controller : 'ABMExpedientesCtrl',
 			templateUrl : 'templates/expediente/abm.html'
+		}).when('/area/abm/:idarea', {
+			controller : 'ABMAreasCtrl',
+			templateUrl : 'templates/area/abm.html'
 		}).when('/expediente/lista', {
 			controller : 'ListaExpedientesCtrl',
 			templateUrl : 'templates/expediente/lista.html'
+		}).when('/area/lista', {
+			controller : 'ListaAreaCtrl',
+			templateUrl : 'templates/area/lista.html'
 		}).otherwise({
 				redirectTo: "/home"
 		});

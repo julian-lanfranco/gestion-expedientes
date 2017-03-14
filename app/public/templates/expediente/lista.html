@@ -1,0 +1,30 @@
+<h1>Lista de Expediente</h1>
+<table class="table table-condensed">
+<thead>
+  <td>Nro</td>  
+  <td>Caratula</td>  
+  <td>Fecha</td>  
+  <td>Iniciador</td>  
+  <td>Nro</td>  
+</thead>
+<tbody>
+<tr ng-repeat="expte in lista">
+  <td>
+    {{expte.nroExpediente}}
+  </td>
+  <td>
+    {{expte.caratula}}
+  </td>
+  <td>
+    {{expte.fecha | date:short}}
+  </td>
+  <td>
+    {{expte.iniciador}}
+  </td>
+  <td>
+    <button ng-click="editar(expte)" type="button">Editar</button>
+    <button>Registrar Pase</button>
+  </td>
+</tr>
+</tbody>
+</table>

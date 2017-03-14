@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appExpedientes">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Sistema de gestion de expedientes</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet" />
+    <style>
+      .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+    </style>
+
+
+  </head>
+
+  <body ng-controller="expedientesController">
+    <my-nav nombre-proyecto="Gestion Expedientes" lista-opciones="opcionesNav"></my-nav>
+    <div class="container-fluid">
+      <div class="row">
+        <menu-lateral opciones-menu="opcionesMenu">
+        </menu-lateral>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <ng-view><ng-view>
+        </div>
+      </div>
+    </div>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-touch.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/ui-bootstrap.js"></script>
+
+    <!-- SCRIPTS PROPIOS 
+        script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js
+    -->
+    
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controller/app-controller.js"></script>
+    <script src="scripts/controller/abmExpedienteCtrl.js"></script>
+    <script src="scripts/controller/abmAreaCtrl.js"></script>
+    <script src="scripts/controller/listaExpedienteCtrl.js"></script>
+    <script src="scripts/servicios/expedientesService.js"></script>
+    <script src="scripts/servicios/areasService.js"></script>
+    <script src="scripts/componentes/my-nav.js"></script>
+    <script src="scripts/componentes/my-menu-lateral.js"></script>
+
+  </body>
+</html>

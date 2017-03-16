@@ -2,6 +2,7 @@
 angular.module('appExpedientes').controller('ABMAreasCtrl',
  ['$scope','$location','$routeParams','areasService',
     function($scope,$location,$routeParams,areasService){
+
             var iniciar = function(){
                 console.log($routeParams);
                 console.log($routeParams.idarea);
@@ -33,6 +34,19 @@ angular.module('appExpedientes').controller('ABMAreasCtrl',
                             
             };
 
+            $scope.buscarAreas = function(){
+                //alert("buscando");
+                areasService.buscarTodos().then(
+                    function (data){
+
+                        $scope.areas = data;
+
+                        alert(JSON.stringify(data));                       
+                    }
+                );
+            };
+
+
             $scope.actualizar = function(){
                 console.log($scope.area);
                 areasService.actualizarArea($scope.area)
@@ -50,7 +64,7 @@ angular.module('appExpedientes').controller('ABMAreasCtrl',
 
             $scope.borrar = function(){
                 console.log($scope.area);
-                expedientesService.borrarExpediente($scope.expediente._id)
+                areasService.borrarArea($scope.area._id)
                 .then(function(){
                     $scope.operacionExitosa = true; 
                     $scope.operacionError = false; 
@@ -71,6 +85,7 @@ angular.module('appExpedientes').controller('ABMAreasCtrl',
 
             // cuando termina de cargar el controller lo inicia
             iniciar();
+            $scope.buscarAreas();
 
         }
     ]

@@ -1,11 +1,16 @@
 angular.module('appExpedientes').controller('ABMExpedientesCtrl',
- ['$scope','$location','$routeParams','expedientesService',
-    function($scope,$location,$routeParams,expedientesService){
+ ['$scope','$location','$routeParams','expedientesService','areasService',
+    function($scope,$location,$routeParams,expedientesService,areasService){
 			
+
+            
             var iniciar = function(){
+
+                                
+               
                 console.log($routeParams);
                 console.log($routeParams.idexpediente);
-                $scope.operacionError =false;	
+                $scope.operacionError =false;
 			    $scope.operacionExitosa = false;	
                 if(angular.isUndefined($routeParams.idexpediente) || $routeParams.idexpediente === null ){
                     $scope.modoEditar = false;
@@ -16,8 +21,11 @@ angular.module('appExpedientes').controller('ABMExpedientesCtrl',
                     tmpExpediente.fecha=new Date(tmpExpediente.fecha);
                     $scope.expediente = tmpExpediente;
                 };
+           
             }
           
+
+
             $scope.crear = function(){
 				console.log($scope.expediente);
                 
@@ -31,6 +39,17 @@ angular.module('appExpedientes').controller('ABMExpedientesCtrl',
 					$scope.operacionError = true;	
                 }); 
                             
+            };
+
+         $scope.buscarIniciadores = function(){
+                //alert("buscando");
+                areasService.buscarTodos().then(
+                    function (data){
+                        $scope.iniciadores = data;
+
+                        //alert(JSON.stringify(data));                       
+                    }
+                );
             };
 
             $scope.actualizar = function(){
@@ -70,6 +89,10 @@ angular.module('appExpedientes').controller('ABMExpedientesCtrl',
 
             // cuando termina de cargar el controller lo inicia
             iniciar();
+            $scope.buscarIniciadores();
+   
+
+
         }
     ]
 );

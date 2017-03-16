@@ -5,7 +5,6 @@
     <label for="nroExpediente">Nro Expediente</label>
     <input type="number" class="form-control" name="nroExpediente" id="nroExpediente" placeholder="numero" ng-model="expediente.nroExpediente" ng-required="true">
   </div>
-  {{modoEditar}}
   <div class="form-group">
     <label for="caratula">Caratula</label>
     <input type="text" class="form-control" name="caratula" id="caratula" placeholder="caratula" ng-model="expediente.caratula" ng-required="true">
@@ -20,8 +19,10 @@
   </div>
   <div class="form-group">
     <label for="iniciador">Iniciador</label>
-    <input type="text" class="form-control" name="iniciador" id="iniciador" placeholder=" iniciadro " ng-model="expediente.iniciador" ng-required="true">  
+      <select   ng-model="expediente.iniciador" ng-options="iniciador.nombre for iniciador in iniciadores track by iniciador._id" ng-required="true"></select>
   </div>
+
+
   <button type="button" ng-hide="modoEditar" ng-disabled="formularioExpediente.$invalid" class="btn btn-primary btn-lg active" ng-click="crear()">Crear</button>
   <button type="button" ng-show="modoEditar" ng-disabled="formularioExpediente.$invalid" ng-click="actualizar()"  class="btn btn-default btn-lg active">Editar</button>
   <button type="button" ng-show="modoEditar" ng-disabled="formularioExpediente.$invalid" ng-click="borrar()" class="btn btn-default btn-lg active">Borrar</button>  

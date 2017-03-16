@@ -8,6 +8,7 @@ angular.module('appExpedientes').controller('ListaExpedientesCtrl',
                 	}
                 );
             };
+
             $scope.editar = function(expe){
                 expedientesService.setExpedienteActual(expe);
                 $location.path('/expediente/abm/'+expe._id);
